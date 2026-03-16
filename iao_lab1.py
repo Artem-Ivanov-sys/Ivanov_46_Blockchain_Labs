@@ -28,7 +28,7 @@ class Blockchain(object):
         block_IAO = {
             'index': len(self.chain_IAO) + 1,
             'timestamp': time(),
-            'transactions': self.current_transactions_IAO,
+            'transactions': [i for i in self.current_transactions_IAO],
             'proof': proof_IAO,
             'previous_hash': previous_hash_IAO or Blockchain.hash_IAO(self.last_block_IAO())
         }
@@ -39,6 +39,11 @@ class Blockchain(object):
 
         return block_IAO
 
+    @staticmethod
+    def hash_IAO(block_IAO):
+        block_string_IAO = dumps(block_IAO, sort_keys=True).encode()
+        return sha256(block_string_IAO).hexdigest()
+    
     def new_transaction_IAO(self, sender_IAO, recipient_IAO, amount_IAO) -> int:
         self.current_transactions_IAO.append({
             'sender': sender_IAO,
@@ -47,11 +52,6 @@ class Blockchain(object):
         })
 
         return self.last_block_IAO['index'] + 1
-
-    @staticmethod
-    def hash_IAO(block_IAO):
-        block_string_IAO = dumps(block_IAO, sort_keys=True).encode()
-        return sha256(block_string_IAO).hexdigest()
 
     @property
     def last_block_IAO(self):
