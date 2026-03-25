@@ -2,7 +2,6 @@ from blockchain import Blockchain
 from uuid import uuid4
 from json import loads as json_loads
 import argparse
-from re import match
 from urllib.parse import urlparse
 
 from flask import Flask, jsonify, request

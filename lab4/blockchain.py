@@ -1,8 +1,7 @@
 from time import time
 from hashlib import sha256
 from json import dumps
-from urllib.parse import urlparse, urlencode
-
+from urllib.parse import urlparse
 from aiohttp import ClientSession
 from asyncio import run as async_run
 from copy import deepcopy

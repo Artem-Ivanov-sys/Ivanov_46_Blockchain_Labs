@@ -1,49 +1,8 @@
-# from aiohttp import ClientSession
-# from json import dumps
-# from asyncio import run as async_run
-# from pprint import pprint
-
-# async def main():
-#     async with ClientSession() as session:
-#         json = dumps({
-#             "nodes": ["http://0.0.0.0:5001"]
-#         })
-#         async with session.post("http://localhost:5000/nodes/register", json=json) as response:
-#             if response.status // 100 not in [1, 2, 3]:
-#                 print(response.status)
-#                 exit(0)
-#             retrieved_data = await response.json()
-#             pprint(retrieved_data)
-        
-#         async with session.get("http://localhost:5001/mine") as response:
-#             if response.status // 100 not in [1, 2, 3]:
-#                 print(response.status)
-#                 exit(0)
-#             retrieved_data = await response.json()
-#             pprint(retrieved_data)
-        
-#         async with session.get("http://localhost:5001/mine") as response:
-#             if response.status // 100 not in [1, 2, 3]:
-#                 print(response.status)
-#                 exit(0)
-#             retrieved_data = await response.json()
-#             pprint(retrieved_data)
-        
-#         async with session.get("http://localhost:5000/nodes/resolve") as response:
-#             if response.status // 100 not in [1, 2, 3]:
-#                 print(response.status)
-#                 exit(0)
-#             retrieved_data = await response.json()
-#             pprint(retrieved_data)
-
-# if __name__ == "__main__":
-#     async_run(main())
-
 from aiohttp import ClientSession
 from asyncio import run
 from pprint import pprint
 from json import dumps
-from typing import Any, Dict
+from typing import Any
 
 class Logger:
     @staticmethod
