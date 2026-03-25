@@ -17,7 +17,7 @@ def mine_IAO():
     last_proof_IAO = last_block_IAO['proof']
     proof_IAO = blockchain_IAO.proof_of_work_IAO(last_proof_IAO)
 
-    blockchain_IAO.new_transaction_IAO(sender_IAO='0', recipient_IAO=node_identifier_IAO, amount_IAO=1)
+    blockchain_IAO.new_transaction_IAO(sender_IAO='0', recipient_IAO=node_identifier_IAO, amount_IAO=3)
     previous_hash_IAO = blockchain_IAO.hash_IAO(last_block_IAO)
     block_IAO = blockchain_IAO.new_block_IAO(proof_IAO, previous_hash_IAO)
 
